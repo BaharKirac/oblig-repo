@@ -1,5 +1,10 @@
 # oblig-repo 
-Cinema Ticket Booking*
+OSLOMET BRUKER NAVN : bakir1424
+GITHUB BRUKER NAVN : BaharKirac
+GITHUB REPO URL : https://github.com/BaharKirac/oblig-repo.git
+FULLT NAVN : Bahar Kirac
+
+About Cinema Ticket Booking*
 This project provides a simple web application for booking cinema tickets. It features an HTML page for user interaction and a JavaScript file for handling the business logic. The application allows users to select a movie, specify the number of tickets, and enter their personal information including first name, last name, phone number, and email address. Additionally, users can view all booked tickets and have the option to delete all bookings.
 How to Use?*
 Choose your desired movie from the dropdown list.
