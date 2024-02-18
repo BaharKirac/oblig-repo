@@ -51,7 +51,7 @@ function checkInput() {
     let fornavn = document.getElementById("fornavn").value;
     let fornavnAdv = document.getElementById("fornavnAdv");
     if (!/^[a-zA-ZæøåÆØÅ\s]+$/.test(fornavn) || fornavn.length < 2) {
-        fornavnAdv.innerText = "Må skrive noe inn i fornavnet";
+        fornavnAdv.innerText = "Dette feltet kan ikke stå tomt.";
         fornavnAdv.style.display = "inline-block";
         isValid = false;
     } else {
@@ -62,7 +62,7 @@ function checkInput() {
     let etternavn = document.getElementById("etternavn").value;
     let etternavnAdv = document.getElementById("etternavnAdv");
     if (!/^[a-zA-ZæøåÆØÅ\s]+$/.test(etternavn) || etternavn.length < 2) {
-        etternavnAdv.innerText = "Må skrive noe inn i etternavnet";
+        etternavnAdv.innerText = "Dette feltet kan ikke stå tomt.";
         etternavnAdv.style.display = "inline-block";
         isValid = false;
     } else {
@@ -74,7 +74,7 @@ function checkInput() {
     let telAdv = document.getElementById("telAdv");
 
     if (!/^\d{8}$/.test(telefonnr)) {
-        telAdv.innerText = "Må skrive noe inn i telefonnummer";
+        telAdv.innerText = "Vennligst skriv inn i gyldig telefonnummer med 8 siffer"; // Telefonnumre i Norge består av 8 sifre.
         telAdv.style.display = "inline-block"; // Vis feilmelding
         isValid = false;
     } else {
@@ -88,7 +88,7 @@ function checkInput() {
 // regex for e post validering
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(epost)) {
-        epostAdv.innerText = "Må skrive noe inn i epost";
+        epostAdv.innerText = "Vennligst skriv inn gyldig epost som feks.(bruker@gmail.no)";
         epostAdv.style.display = "inline-block"; // Vis feilmelding
         isValid = false;
     } else {
