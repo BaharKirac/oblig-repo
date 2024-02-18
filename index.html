@@ -6,15 +6,15 @@
     <title>Bestilling av kinobilletter</title>
 </head>
 <body>
-<!-- Form başlangıcı -->
-<form id="billettForm" style="border:2px solid darkslateblue; padding: 20px; margin: 20px; width: 400px;">
+<!-- Skjema Start -->
+<form id="billettForm" style="border:2px solid blue; padding: 10px; margin: 30px; width: 400px;">
     <h1>Bestilling av kinobilletter</h1>
 
-    <!-- Film seçimi -->
+    <!-- Filmutvalg -->
     <label for="filmNames"
            style="display: inline-block; width: 100px;  margin-right: 10px;">Velg film:</label>
     <select name="filmNames" id="filmNames" style="width: 170px;">
-        <option value="" disabled selected>Velg en film...</option>
+        <option value="" disabled selected>Velg film her </option>
         <option value="Titanic">Titanic</option>
         <option value="Luca">Luca</option>
         <option value="The Beekeeper">The Beekeeper</option>
@@ -81,7 +81,7 @@
     <br />
 
 
-    <!-- Alle billetter liste başlığı -->
+    <!-- Alle billetter tittel -->
     <h3>Alle billetter</h3>
     <div id="alleBilletter"></div>
 
@@ -94,5 +94,5 @@
     /><br />
 </form>
 </body>
-<script src="./kinobillett.js"></script>
+<script src="script.js"></script>
 </html>

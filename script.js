@@ -1,8 +1,8 @@
 
-// Billet listesi için boş array
+// Tom array for billet liste
 let billettListe = [];
 
-// Billett ekleme fonksiyonu
+// Funksjon for å legge til billetter
 function addBillett() {
     if (checkInput()) {
         let billett = {
@@ -19,41 +19,39 @@ function addBillett() {
     }
 }
 
-// Input alanlarını doğrulama fonksiyonu
+// Input valideringer
 function checkInput() {
     let isValid = true;
 
 
-    // Film seçimi doğrulama
+    // validering for filmutvalg
     let film = document.getElementById("filmNames").value;
-    let filmAdv = document.getElementById("filmAdv"); // Uyarı mesajını göstermek için bir element id'si
+    let filmAdv = document.getElementById("filmAdv");
     if (film === "") {
-        filmAdv.innerText = "Vennligst velg en film fra listen";
+        filmAdv.innerText = "Vennligst velg en film";
         filmAdv.style.display = "inline-block";
         isValid = false;
     } else {
         filmAdv.style.display = "none";
     }
 
-    // Diğer doğrulamalarınızı burada sürdürebilirsiniz...
-
 
     // Antall validation
     let antall = document.getElementById('antall').value;
     let antallAdv = document.getElementById("antallAdv");
     if (parseInt(antall) < 1 || isNaN(parseInt(antall))) {
-        antallAdv.innerText = "Må skrive noe antall";
-        antallAdv.style.display = "inline-block"; // Hata mesajını göster
+        antallAdv.innerText = "Må skrive noe inn i antall";
+        antallAdv.style.display = "inline-block"; // vis feilmelding
         isValid = false;
     } else {
-        antallAdv.style.display = "none"; // Hata mesajını gizle
+        antallAdv.style.display = "none"; // skjul feilmelding
     }
 
     // Fornavn validation
     let fornavn = document.getElementById("fornavn").value;
     let fornavnAdv = document.getElementById("fornavnAdv");
     if (!/^[a-zA-ZæøåÆØÅ\s]+$/.test(fornavn) || fornavn.length < 2) {
-        fornavnAdv.innerText = "Fornavn er ikke gyldig";
+        fornavnAdv.innerText = "Må skrive noe inn i fornavnet";
         fornavnAdv.style.display = "inline-block";
         isValid = false;
     } else {
@@ -64,7 +62,7 @@ function checkInput() {
     let etternavn = document.getElementById("etternavn").value;
     let etternavnAdv = document.getElementById("etternavnAdv");
     if (!/^[a-zA-ZæøåÆØÅ\s]+$/.test(etternavn) || etternavn.length < 2) {
-        etternavnAdv.innerText = "Etternavn er ikke gyldig";
+        etternavnAdv.innerText = "Må skrive noe inn i etternavnet";
         etternavnAdv.style.display = "inline-block";
         isValid = false;
     } else {
@@ -72,30 +70,29 @@ function checkInput() {
     }
 
     // Telefonnr validation
-    // Telefonnr validation
     let telefonnr = document.getElementById("telefonnr").value;
     let telAdv = document.getElementById("telAdv");
-// Norveç'te telefon numaraları 8 rakamdan oluşur
+
     if (!/^\d{8}$/.test(telefonnr)) {
-        telAdv.innerText = "Vennligst skriv inn et gyldig telefonnummer med 8 siffer";
-        telAdv.style.display = "inline-block"; // Hata mesajını göster
+        telAdv.innerText = "Må skrive noe inn i telefonnummer";
+        telAdv.style.display = "inline-block"; // Vis feilmelding
         isValid = false;
     } else {
-        telAdv.style.display = "none"; // Hata mesajını gizle
+        telAdv.style.display = "none"; // Skjul feilmelding
     }
 
-    // Epost validation
+
     // Epost validation
     let epost = document.getElementById("epost").value;
     let epostAdv = document.getElementById("epostAdv");
-// Daha kapsamlı bir e-posta doğrulama regex'i
+// regex for e post validering
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(epost)) {
-        epostAdv.innerText = "Vennligst skriv inn en gyldig e-postadresse (f.eks. bruker@eksempel.no)";
-        epostAdv.style.display = "inline-block"; // Hata mesajını göster
+        epostAdv.innerText = "Må skrive noe inn i epost";
+        epostAdv.style.display = "inline-block"; // Vis feilmelding
         isValid = false;
     } else {
-        epostAdv.style.display = "none"; // Hata mesajını gizle
+        epostAdv.style.display = "none"; // Skjul feilmelding
     }
 
     return isValid;
@@ -103,26 +100,26 @@ function checkInput() {
 }
 
 
-// Formu sıfırlama fonksiyonu
+// Funksjon for tilbakestilling av skjema
 function resetForm() {
     document.getElementById('billettForm').reset();
-    // Tüm uyarı mesajlarını gizle
+    // Skjul alle advarselsmeldinger
     let warnings = document.querySelectorAll('.validation-error');
     warnings.forEach(function(warning) {
         warning.style.display = 'none';
     });
 }
 
-// Bilet listesini güncelleme ve gösterme fonksiyonu
+// Funksjon for å oppdatere og vise billettliste
 function listBilletter() {
     let alleBilletterDiv = document.getElementById('alleBilletter');
-    alleBilletterDiv.innerHTML = ''; // Mevcut listeyi temizle
+    alleBilletterDiv.innerHTML = ''; // Slett gjeldende liste
     billettListe.forEach(function(billett) {
-        alleBilletterDiv.innerHTML += '<p>${billett.film} ${billett.antall} ${billett.fornavn} ${billett.etternavn} ${billett.telefonnr} ${billett.epost}</p>';
+        alleBilletterDiv.innerHTML += `<p>${billett.film} ${billett.antall} ${billett.fornavn} ${billett.etternavn} ${billett.telefonnr} ${billett.epost}</p>`;
     });
 }
 
-// Tüm biletleri silme fonksiyonu
+// Funksjon for å slette alle billetter
 function slettAlleBilletter() {
     billettListe = [];
     listBilletter();
