@@ -10,5 +10,3 @@ All current bookings are displayed under "Alle billetter."
 To delete all bookings, click on the "Slett alle billettene" button.
 Validation
 The application includes validation checks for all inputs. Ensures a movie is selected.
-Validates that the quantity is a positive number.
-Checks for valid Norwegian characters in names, a valid 8-digit phone number, and a correctly formatted email address.
